@@ -6,8 +6,8 @@ FROM gcc:7.4.0 as build-essential
 #    rm -rf /var/lib/apt/* \
 
 WORKDIR /dist
-ENV KERNEL_VERSION 4.14.138-rancher
-ENV KERNEL_SRC https://github.com/rancher/os-kernel/releases/download/v${KERNEL_VERSION}/linux-${KERNEL_VERSION}-x86-src.tgz
+ENV KERNEL_VERSION 5.9.1-burmilla
+ENV KERNEL_SRC https://github.com/burmilla/os-kernel/releases/download/v${KERNEL_VERSION}/linux-${KERNEL_VERSION}-x86-src.tgz
 
 RUN wget -q $KERNEL_SRC && \
     tar xf linux-${KERNEL_VERSION}-x86-src.tgz -C . && \
@@ -37,15 +37,15 @@ RUN chmod +x /usr/bin/hv_* && \
 
 ENTRYPOINT ["/usr/bin/ros", "entrypoint"]
 
-RUN addgroup --gid 1100 rancher && \
+RUN addgroup --gid 1100 burmilla && \
     addgroup --gid 1101 docker && \
-    adduser -q -u 1100 --gid 1100 --shell /bin/bash rancher && \
+    adduser -q -u 1100 --gid 1100 --shell /bin/bash burmilla && \
     adduser -q -u 1101 --gid 1101 --shell /bin/bash docker && \
     adduser docker sudo && \
-    sed -i 's/rancher:!/rancher:*/g' /etc/shadow && \
+    sed -i 's/burmilla:!/burmilla:*/g' /etc/shadow && \
     sed -i 's/docker:!/docker:*/g' /etc/shadow && \
-    echo '## allow password less for rancher user' >> /etc/sudoers && \
-    echo 'rancher ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
+    echo '## allow password less for burmilla user' >> /etc/sudoers && \
+    echo 'burmilla ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
     echo '## allow password less for docker user' >> /etc/sudoers && \
     echo 'docker ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers && \
     echo "docker:tcuser" | chpasswd

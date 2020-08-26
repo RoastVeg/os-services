@@ -1,4 +1,4 @@
-FROM rancher/os-debianconsole-base
+FROM burmilla/os-debianconsole-base
 # FROM amd64=debian:stretch arm64=arm64v8/debian:stretch
 
 COPY build/sshd_config.append.tpl /etc/ssh/
@@ -10,12 +10,12 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /etc/ssh/*key* \
     && locale-gen en_US.UTF-8 \
-    && addgroup --gid 1100 rancher \
+    && addgroup --gid 1100 burmilla \
     && addgroup --gid 1101 docker \
-    && useradd -u 1100 -g rancher -G docker,sudo -m -s /bin/bash rancher \
+    && useradd -u 1100 -g burmilla -G docker,sudo -m -s /bin/bash burmilla \
     && useradd -u 1101 -g docker -G docker,sudo -m -s /bin/bash docker \
-    && echo '## allow password less for rancher user' >> /etc/sudoers \
-    && echo 'rancher ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
+    && echo '## allow password less for burmilla user' >> /etc/sudoers \
+    && echo 'burmilla ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && echo '## allow password less for docker user' >> /etc/sudoers \
     && echo 'docker ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers \
     && ln -s /bin/ps /usr/bin/ps \

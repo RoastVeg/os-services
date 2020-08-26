@@ -1,11 +1,11 @@
 virtualbox-tools:
-  image: ${REGISTRY_DOMAIN}/rancher/os-vboxtools:v5.2.26-5
+  image: ${REGISTRY_DOMAIN}/burmilla/os-vboxtools:v5.2.26-5
   command: /usr/local/bin/run
   privileged: true
   restart: always
   labels:
-    io.rancher.os.scope: system
-    io.rancher.os.after: console
+    io.burmilla.os.scope: system
+    io.burmilla.os.after: console
   pid: host
   ipc: host
   net: host

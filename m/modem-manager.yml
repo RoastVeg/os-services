@@ -1,9 +1,9 @@
 modem-manager:
-  image: ${REGISTRY_DOMAIN}/rancher/os-modemmanager:v1.6.4-1
+  image: ${REGISTRY_DOMAIN}/burmilla/os-modemmanager:v1.6.4-1
   privileged: true
   labels:
-    io.rancher.os.scope: system
-    io.rancher.os.after: udev
+    io.burmilla.os.scope: system
+    io.burmilla.os.after: udev
   restart: always
   pid: host
   ipc: host
@@ -17,4 +17,4 @@ modem-manager:
   - /dev:/dev
   - /sys:/sys
   - /var/run:/var/run
-  - /var/lib/rancher:/var/lib/rancher
+  - /var/lib/burmilla:/var/lib/burmilla

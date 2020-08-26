@@ -3,6 +3,9 @@ set -e
 
 cd $(dirname $0)/..
 
+echo "Environment variables"
+printenv
+
 ./scripts/build-images
 
 echo

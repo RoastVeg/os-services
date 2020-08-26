@@ -1,9 +1,9 @@
 kernel-extras:
-  image: ${REGISTRY_DOMAIN}/rancher/os-extras:${KERNEL_VERSION}${SUFFIX}
+  image: ${REGISTRY_DOMAIN}/burmilla/os-extras:${KERNEL_VERSION}${SUFFIX}
   labels:
-    io.rancher.os.detach: "false"
-    io.rancher.os.after: "network"
-    io.rancher.os.scope: "system"
+    io.burmilla.os.detach: "false"
+    io.burmilla.os.after: "network"
+    io.burmilla.os.scope: "system"
   volumes:
   - /usr/src:/usr/src
   - /lib/modules:/lib/modules

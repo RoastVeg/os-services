@@ -1,6 +1,6 @@
 volume-nfs:
   command: nfs --verbose --basedir=/mnt ${VOLUME_NFS_OPTIONS}
-  image: ${REGISTRY_DOMAIN}/rancher/os-volumenetshare
+  image: ${REGISTRY_DOMAIN}/burmilla/os-volumenetshare
   pid: host
   ipc: host
   net: host
@@ -11,9 +11,9 @@ volume-nfs:
     - /run/docker/plugins:/run/docker/plugins:rw
     - /mnt/volumes/netshare/nfs:/mnt:shared
   labels:
-    io.rancher.os.scope: system
-    io.rancher.os.after: docker
-    io.rancher.os.detach: "true"
+    io.burmilla.os.scope: system
+    io.burmilla.os.after: docker
+    io.burmilla.os.detach: "true"
   environment:
     - AWS_*
     - VOLUME_NFS_OPTIONS

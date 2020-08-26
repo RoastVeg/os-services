@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "#cloud-config"
-echo "rancher:"
+echo "burmilla:"
 echo "  environment:"
 
 echo "    AWS_AVAILABILITY_ZONE: ${AWS_AVAILABILITY_ZONE}"

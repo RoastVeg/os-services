@@ -1,7 +1,7 @@
 #!/bin/sh
 set -ex
 
-BUILD_DIR=/var/lib/rancher/nvidia
+BUILD_DIR=/var/lib/burmilla/nvidia
 KERNEL_VERSION=$(uname -r)
 
 NVIDIA_VERSION=390.48

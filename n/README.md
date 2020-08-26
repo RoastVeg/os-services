@@ -12,7 +12,7 @@ ros service enable nvidia-driver
 ros service up nvidia-driver
 
 ### Manual execution of build.sh scripts (Ignoring CC version mismatch)
-/var/lib/rancher/nvidia/build.sh
+/var/lib/burmilla/nvidia/build.sh
 
 
 ## Verification

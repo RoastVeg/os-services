@@ -1,12 +1,12 @@
 open-iscsi:
-  image: ${REGISTRY_DOMAIN}/rancher/os-iscsi:v2.0.873-2
+  image: ${REGISTRY_DOMAIN}/burmilla/os-iscsi:v2.0.873-2
   command: ./build.sh
   privileged: "true"
   labels:
-    io.rancher.os.scope: "system"
-    io.rancher.os.detach: "false"
-    io.rancher.os.before: "docker"
-    io.rancher.os.after: "console"
+    io.burmilla.os.scope: "system"
+    io.burmilla.os.detach: "false"
+    io.burmilla.os.before: "docker"
+    io.burmilla.os.after: "console"
   environment:
   - HTTP_PROXY
   - HTTPS_PROXY

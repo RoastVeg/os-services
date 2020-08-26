@@ -58,13 +58,13 @@ _mmcliProcess() {
 
     if $found ; then
         index=0
-        RANCHER_NETWORK=`ros config export | yq r - rancher.network -j`
+        burmilla_NETWORK=`ros config export | yq r - burmilla.network -j`
         MODEM_NUMBERS=`mmcli -L | grep Modem | sed -e 's/\//\ /g' | awk '{print $5}'`
         echo "Found available modem number: $MODEM_NUMBERS ............................."
         touch .4g-interfaces
         for i in $MODEM_NUMBERS
         do
-            CONFIG_SIZE=`jq -r ".modem_networks" <<< $RANCHER_NETWORK | jq length`
+            CONFIG_SIZE=`jq -r ".modem_networks" <<< $burmilla_NETWORK | jq length`
             for ((j=0; j<$CONFIG_SIZE; j++))
             do
                 INTERFACE_PATH=`mmcli -m $i status | grep device | awk -F"device: " '{print $2}' | sed "s/'/ /g" | sed '/^$/d' | sed 's/[ \t]*$//g'`
@@ -73,8 +73,8 @@ _mmcliProcess() {
                 if [[ -z $VALID_INTERFACE ]]; then
                     continue
                 fi
-                apn=`jq -r ".modem_networks.$CONFIG_INTERFACE.apn" <<< $RANCHER_NETWORK`
-                extras=`jq -r ".modem_networks.$CONFIG_INTERFACE.extra_args" <<< $RANCHER_NETWORK`
+                apn=`jq -r ".modem_networks.$CONFIG_INTERFACE.apn" <<< $burmilla_NETWORK`
+                extras=`jq -r ".modem_networks.$CONFIG_INTERFACE.extra_args" <<< $burmilla_NETWORK`
                 break
             done
 

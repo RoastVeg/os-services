@@ -1,12 +1,12 @@
 console:
-  image: ${REGISTRY_DOMAIN}/rancher/os-fedoraconsole:v1.5.5${SUFFIX}
+  image: ${REGISTRY_DOMAIN}/burmilla/os-fedoraconsole:v1.5.5${SUFFIX}
   command: ros console-init
   privileged: true
   labels:
-    io.rancher.os.scope: system
-    io.rancher.os.after: network
+    io.burmilla.os.scope: system
+    io.burmilla.os.after: network
     io.docker.compose.rebuild: "false"
-    io.rancher.os.console: fedora
+    io.burmilla.os.console: fedora
   volumes_from:
   - all-volumes
   volumes:

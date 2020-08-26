@@ -1,5 +1,5 @@
 amazon-metadata:
-  image: ${REGISTRY_DOMAIN}/rancher/os-amazonmetadata
+  image: ${REGISTRY_DOMAIN}/burmilla/os-amazonmetadata
   command: -m
   pid: host
   ipc: host
@@ -7,13 +7,13 @@ amazon-metadata:
   uts: host
   privileged: true
   labels:
-    io.rancher.os.after: network
-    io.rancher.os.before: console
-    io.rancher.os.detach: "false"
-    io.rancher.os.scope: system
-    io.rancher.os.reloadconfig: "true"
+    io.burmilla.os.after: network
+    io.burmilla.os.before: console
+    io.burmilla.os.detach: "false"
+    io.burmilla.os.scope: system
+    io.burmilla.os.reloadconfig: "true"
   volumes:
     - /usr/bin/ros:/bin/ros:ro
-    - /var/lib/rancher/conf:/var/lib/rancher/conf:rw
+    - /var/lib/burmilla/conf:/var/lib/burmilla/conf:rw
   environment:
     - AWS_*

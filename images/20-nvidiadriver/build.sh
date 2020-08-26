@@ -38,7 +38,7 @@ cp /usr/lib64/libseccomp.so.2 ${LOCAL_PATH}/lib/libseccomp.so.2
 cp /usr/lib64/libcap.so.2 ${LOCAL_PATH}/lib/libcap.so.2
 cp /usr/lib64/libattr.so.1 ${LOCAL_PATH}/lib/libattr.so.1
 
-grep "console: ubuntu" /var/lib/rancher/conf/cloud-config.yml > /dev/null
+grep "console: ubuntu" /var/lib/burmilla/conf/cloud-config.yml > /dev/null
 if [ $? -eq 0 ]; then
     cp ubuntu-build.sh ${LOCAL_PATH}/build.sh
     chmod 755 ${LOCAL_PATH}/build.sh

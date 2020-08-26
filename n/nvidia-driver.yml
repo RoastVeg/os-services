@@ -6,9 +6,9 @@ nvidia-driver:
   - "./build.sh"
   privileged: true
   labels:
-    io.rancher.os.scope: "system"
-    io.rancher.os.after: "docker"
-    io.rancher.os.detach: "true"
+    io.burmilla.os.scope: "system"
+    io.burmilla.os.after: "docker"
+    io.burmilla.os.detach: "true"
   volumes_from:
   - all-volumes
   pid: host
@@ -16,4 +16,4 @@ nvidia-driver:
   net: host
   uts: host
   volumes:
-  - /var/lib/rancher/nvidia:/tmp/usr/local
+  - /var/lib/burmilla/nvidia:/tmp/usr/local
