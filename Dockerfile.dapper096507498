@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM arm64v8/ubuntu:bionic
 # FROM arm64=arm64v8/ubuntu:bionic
 
 RUN apt-get update && \
@@ -51,7 +51,8 @@ RUN rm /bin/sh && \
     ln -s /bin/bash /bin/sh
 
 # Install Docker
-RUN curl -fL ${!DOCKER_URL} > /usr/bin/docker && \
+RUN echo "${DOCKER_URL}" && \
+    curl -fL "${DOCKER_URL}" > /usr/bin/docker && \
     chmod +x /usr/bin/docker
 
 # Install dapper
