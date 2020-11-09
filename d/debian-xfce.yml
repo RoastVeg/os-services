@@ -1,5 +1,5 @@
 console:
-  image: ${REGISTRY_DOMAIN}/jpmsb/os-debian-xfceconsole:v1.5.2${SUFFIX}
+  image: ${REGISTRY_DOMAIN}/RoastVeg/os-debian-xfceconsole:v1.5.2${SUFFIX}
   command: iniciar-tudo
   privileged: true
   labels:

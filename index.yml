@@ -21,6 +21,7 @@ consoles:
 - alpine
 - centos
 - debian
+- debian-xfce
 - fedora
 - ubuntu
 engines:
