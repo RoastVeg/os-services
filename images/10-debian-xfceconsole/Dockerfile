@@ -1,4 +1,5 @@
 FROM debian:latest
+# FROM amd64=debian:latest arm64=arm64v8/debian:latest
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     \
