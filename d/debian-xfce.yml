@@ -1,0 +1,21 @@
+console:
+  image: ${REGISTRY_DOMAIN}/jpmsb/os-debian-xfceconsole:v1.5.2${SUFFIX}
+  command: iniciar-tudo
+  privileged: true
+  labels:
+    io.rancher.os.scope: system
+    io.rancher.os.after: network
+    io.docker.compose.rebuild: "false"
+    io.rancher.os.console: debian-xfce
+  shm_size: 2048M
+  volumes_from:
+  - all-volumes
+  volumes:
+  - /media:/media:shared
+  - /mnt:/mnt:shared
+  restart: always
+  pid: host
+  ipc: host
+  net: host
+  uts: host
+  shm_size: 2048M
